@@ -42,10 +42,19 @@
         },
         methods: {
             submitForm(formName) {
+                const _this = this;
                 this.$refs[formName].validate((valid) => {
                     if (valid) {
-                        localStorage.setItem('ms_username',this.ruleForm.username);
-                        this.$router.push('/');
+                        this.$axios.post('http://127.0.0.1:3000/interface/login',this.ruleForm)
+                          .then(function (result) {
+                            if(result.data.flag){
+                              localStorage.setItem('ms_username',_this.ruleForm.username)
+                              _this.$router.push('/');
+                            }else{
+                              alert(result.data.msg);
+                            }
+                          })
+
                     } else {
                         console.log('error submit!!');
                         return false;

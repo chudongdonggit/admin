@@ -49,13 +49,13 @@ export default new Router({
                     // markdown组件
                     path: '/markdown',
                     component: resolve => require(['../components/page/Markdown.vue'], resolve),
-                    meta: { title: 'markdown编辑器' }    
+                    meta: { title: 'markdown编辑器' }
                 },
                 {
                     // 图片上传组件
                     path: '/upload',
                     component: resolve => require(['../components/page/Upload.vue'], resolve),
-                    meta: { title: '文件上传' }   
+                    meta: { title: '文件上传' }
                 },
                 {
                     // vue-schart组件
@@ -81,6 +81,15 @@ export default new Router({
                     component: resolve => require(['../components/page/Permission.vue'], resolve),
                     meta: { title: '权限测试', permission: true }
                 },
+              //------------------------------------------
+
+                {
+                  // 查看类别
+                  path: '/viewClass',
+                  component: resolve => require(['../components/page/ViewClass.vue'], resolve),
+                  meta: { title: '查看类别', permission: true }
+                },
+              //-------------------------------------------
                 {
                     path: '/404',
                     component: resolve => require(['../components/page/404.vue'], resolve),
